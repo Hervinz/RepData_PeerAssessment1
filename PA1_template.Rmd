@@ -19,12 +19,16 @@ head(RawData)
 ## What is mean total number of steps taken per day?
 ```{r}
 RawData$date <- as.Date(as.character(RawData$date))
-StepbyDay <- aggregate(steps~date, RawData, sum)
-mean(StepbyDay$steps)
+TotalStespbyDay <- aggregate(steps~date, RawData, sum)
+mean(TotalStespbyDay$steps)
+hist(x=TotalStespbyDay$steps, xlab = "Steps per day")
+mean(TotalStespbyDay$steps)
+median(TotalStespbyDay$steps)
 ```
 
 ## What is the average daily activity pattern?
-
+MeanStepsbyDay <- aggregate(steps~date, RawData, mean)
+plot(MeanStepsbyDay$steps~MeanStepsbyDay$date, type="l", xlab="Date", ylab="Mean Steps in a day", main="Time Series of Average Seps per Day")
 
 
 ## Imputing missing values
