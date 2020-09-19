@@ -11,13 +11,17 @@ The data to be read is the zipped file named "activity.csv"
 ```{r}
 unzip(zipfile = "activity.zip")
 RawData <- read.csv("activity.csv",header = TRUE, sep = ",")
+head(RawData)
 ```
 
 
 
 ## What is mean total number of steps taken per day?
-
-
+```{r}
+RawData$date <- as.Date(as.character(RawData$date))
+StepbyDay <- aggregate(steps~date, RawData, sum)
+mean(StepbyDay$steps)
+```
 
 ## What is the average daily activity pattern?
 
