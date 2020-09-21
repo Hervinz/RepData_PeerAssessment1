@@ -369,7 +369,9 @@ summary {
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>Loading and preprocessing the data</h2>
 <p>The data to be read is the zipped file named “activity.csv”</p>
-<pre class="r"><code>unzip(zipfile = &quot;activity.zip&quot;)
+<pre class="r"><code>fileUrl &lt;- &quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip&quot;
+download.file(url = fileUrl, destfile = &quot;activity.zip&quot;)
+unzip(zipfile = &quot;activity.zip&quot;)
 RawData &lt;- read.csv(&quot;activity.csv&quot;,header = TRUE, sep = &quot;,&quot;)
 head(RawData)</code></pre>
 <pre><code>##   steps       date interval

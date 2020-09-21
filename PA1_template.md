@@ -11,6 +11,8 @@ output:
 The data to be read is the zipped file named "activity.csv"
 
 ```r
+fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+download.file(url = fileUrl, destfile = "activity.zip")
 unzip(zipfile = "activity.zip")
 RawData <- read.csv("activity.csv",header = TRUE, sep = ",")
 head(RawData)
@@ -238,10 +240,4 @@ g
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
-
-
-
-
-
-
 
